@@ -92,9 +92,27 @@
             text-decoration: none;
             font-size: 1.2rem;
         }
+
+        /* Offline message styling */
+        #offlineMessage {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 0, 0, 0.9);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 1.2rem;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
+    <!-- Offline Notification -->
+    <div id="offlineMessage">You are offline. Please connect to the internet to access this website.</div>
+
     <!-- Login Page -->
     <div class="content-wrapper" id="loginPage">
         <h1>TANMAY MOD☠️</h1>
@@ -113,16 +131,28 @@
             <button onclick="predict()">Predict</button>
         </div>
         <div id="result"></div>
-        <a href="https://t.me/+rCITrimWIFFiMmNl" class="telegram-link" target="_blank">JOIN US ON TELEGRAM</a>
+        <a href="https://t.me/+D5G6xvumHfVhYmY1" class="telegram-link" target="_blank">JOIN US ON TELEGRAM</a>
         <p>TELEGRAM CONTACT: @TANMAYPAUL21</p>
     </div>
 
     <script>
+        // Prevent offline access by redirecting offline users
+        function preventOfflineAccess() {
+            if (!navigator.onLine) {
+                alert("You are offline. Please connect to the internet to access this website.");
+                window.location.href = "about:blank"; // Redirect to a blank page
+            }
+        }
+
+        // Run offline prevention on page load and whenever connectivity changes
+        window.addEventListener('load', preventOfflineAccess);
+        window.addEventListener('offline', preventOfflineAccess);
+
         function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            if (username === 'TANMAY' && password === 'PAUL') {
+            if (username === 'TANMAY' && password === 'KING') {
                 document.getElementById('loginPage').style.display = 'none';
                 document.getElementById('hackPage').style.display = 'block';
             } else {
